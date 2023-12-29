@@ -1,0 +1,9 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: rgb(152, 97, 21);
+    background-image: url("../images/background.png");
+}
