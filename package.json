@@ -1,0 +1,19 @@
+{
+  "name": "mysticode",
+  "version": "1.0.0",
+  "description": "Second project utilizing JavaScript, server and database to create a grimoire app.",
+  "main": "index.js",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Faylina",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "formidable": "^3.5.1",
+    "nano": "^10.1.3"
+  }
+}
