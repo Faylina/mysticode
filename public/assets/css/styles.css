@@ -12,6 +12,7 @@ body {
     width: 100vw;
     height: 100vh;
     font-family: Papyrus, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    letter-spacing: 0.1rem;
 }
 
 .book {
@@ -96,6 +97,8 @@ body {
     backface-visibility: hidden;
     transform: rotateY(180deg);
     box-shadow: 0 0 5px rgb(41, 41, 41);
+    display: flex;
+    min-width: 200px;
 }
 
 .menu {
@@ -124,6 +127,20 @@ body {
     text-shadow: 0 0 15px #e6c805;
 }
 
+@media(max-width: 1300px) {
+    .menu {
+        font-size: 1.7rem;
+    }
+
+    .menu-option {
+        margin: -0.1rem;
+    }
+
+    .menu-option:hover {
+        font-size: 2rem;
+    }
+}
+
 .book-backcover {
     position: relative;
     z-index: -1;
@@ -145,6 +162,42 @@ body {
     height: 100%;
     border-radius: 0 15px 15px 0;
     position: absolute;
+}
+
+.introduction {
+    position: absolute; 
+    width: 100%;
+    height: 100%; 
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+}
+
+.introduction img {
+    width: 80%;
+    border-radius: 15px;
+    display: flex;
+    flex: 0 1 50%;
+    margin: 30px 0 15px 0;
+}
+
+.text {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 1.5rem;
+    padding-top: 30px;
+    min-width: 200px;
+}
+
+@media(max-width: 1200px) {
+    .text {
+        font-size: 1.2rem;
+    }
 }
 
 .pointer {
