@@ -6,4 +6,9 @@
 body {
     background: rgb(152, 97, 21);
     background-image: url("../images/background.png");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
 }

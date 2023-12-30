@@ -4,9 +4,7 @@ import express from 'express';
 
 const server = express(); 
 
-server.use(express.static('public', {
-    extensions: ['html', 'htm']
-}));
+server.use(express.static('public'));
 
 const init = () => {
     
