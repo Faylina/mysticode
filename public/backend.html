@@ -12,31 +12,34 @@
     <body>
 
         <div class="parchment">
-            <form id="form-backend" action="" method="post">
-                <label for="name">Name your spell: </label>
-                <input type="text" id="name" name="name" placeholder="Cast The Circle">
+            <div class="content">
+                <h1>Create a new spell</h1>
+                <form id="form-backend" action="" method="post">
+                    <label for="name">Name your spell: </label>
+                    <input type="text" id="name" name="name" placeholder="Cast The Circle">
 
-                <label for="element">Choose the element for your spell:</label>
-                <select name="element" id="element">
-                    <optgroup label="Element">
-                        <option value="Air">Air</option>
-                        <option value="Earth">Earth</option>
-                        <option value="Fire">Fire</option>
-                        <option value="Water">Water</option>
-                    </optgroup>
-                </select>
+                    <label for="element">Choose the element for your spell:</label>
+                    <select name="element" id="element">
+                        <optgroup label="Element">
+                            <option value="Air">Air</option>
+                            <option value="Earth">Earth</option>
+                            <option value="Fire">Fire</option>
+                            <option value="Water">Water</option>
+                        </optgroup>
+                    </select>
 
-                <label for="description">Describe your spell and how to use it:</label>
-                <textarea name="description" id="description" cols="100" rows="30">Draw a circle with your wand to cast a circle of protection.</textarea>
+                    <label for="description">Describe your spell and how to use it:</label>
+                    <textarea name="description" id="description" cols="60" rows="10"></textarea>
 
-                <label for="file">Upload an image for your spell: </label>
-                <input type="file" name="file" id="file">
+                    <label for="file">Upload an image for your spell: </label>
+                    <input type="file" name="file" id="file">
 
-                <button>Submit Your Spell</button>
-            </form>
+                    <button id="submit">Submit Your Spell</button>
+                </form>
 
-            <h3>Spells submitted</h3>
-            <div></div>
+                <h1>Spells submitted</h1>
+                <div class="submitted"></div>
+            </div>
         </div>
         
     </body>

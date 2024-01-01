@@ -11,6 +11,96 @@ body {
     justify-content: center;
     width: 100vw;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Papyrus, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    letter-spacing: 0.1rem;
 }
 
+.parchment {
+    background-image: url(../images/backend_page.png);
+    background-repeat: no-repeat;
+    background-size: 90% 100%;
+    background-position: center;
+    width: 60%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.content {
+    overflow-y: auto;
+    margin: 10%;
+}
+
+.content::-webkit-scrollbar {
+    width: 10px;
+   }
+   
+.content::-webkit-scrollbar-track {
+    background-color: rgba(250, 235, 215, 0.5);
+    border-radius: 5px;
+   }
+   
+.content::-webkit-scrollbar-thumb {
+    background-color: rgb(201, 163, 135);
+    border-radius: 5px;
+   }
+   
+.content::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(136, 85, 48);
+   }
+
+#form-backend {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 1.2rem;
+    margin: 1.4rem 0 0.2rem 0;
+}
+
+#name, #element, #description {
+    background-color: rgb(247, 238, 227);
+    font-size: 1rem;
+    font-family: cursive;
+    letter-spacing: 0.05rem;
+    border-radius: 8px;
+    padding-left: 8px;
+}
+
+#name {
+    width: 50%;
+}
+
+#element {
+    width: 100px;
+}
+
+#description {
+    width: 95%;
+    height: 60%;
+}
+
+#file {
+    font-family: Papyrus, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-bottom: 30px;
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+}
+
+#submit {
+    width: 250px;
+    padding: 10px 20px;
+    background-color: rgb(136, 85, 48);
+    border-radius: 8px;
+    color: white;
+    font-family: Papyrus, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    cursor: pointer;
+}
 
