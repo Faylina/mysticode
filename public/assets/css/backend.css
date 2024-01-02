@@ -85,11 +85,12 @@ label {
     height: 60%;
 }
 
-#file {
+#image {
     font-family: Papyrus, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin-bottom: 30px;
     font-size: 1rem;
     letter-spacing: 0.1rem;
+    width: 300px;
 }
 
 #submit {
