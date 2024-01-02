@@ -93,7 +93,7 @@ server.get('/loadAllSpells', (request, response) => {
 })
 
 
-server.delete('/deleteContent', (request, response) => {
+server.delete('/deleteSpell', (request, response) => {
     const databaseSpells = database.use(databaseNames.spells);
 
     const deleteSpells = async () => {
