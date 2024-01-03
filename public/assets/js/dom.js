@@ -12,6 +12,13 @@ const mapDOM = () => {
     domElements.form = document.querySelector('#form-backend');
     domElements.name = document.querySelector('#name');
     domElements.description = document.querySelector('#description');
+    domElements.listSpells = document.querySelector('.listSpells');
+    domElements.searchSpells = document.querySelector('.searchSpells');
+    domElements.filterSpells = document.querySelector('.filterSpells');
+    domElements.loginUser = document.querySelector('.loginUser');
+    domElements.addSpell = document.querySelector('.addSpell');
+    domElements.intro = document.querySelector('.introduction');
+    domElements.spells = document.querySelector('.spells');
 }
 
 // dynamic DOM

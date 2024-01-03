@@ -99,7 +99,7 @@ const render = {
             const element = create({
                 classes: ['spellElement'],
                 parent: container,
-                content: content.element
+                content: `Element: ${content.element}`
             });
 
             const description = create({
@@ -113,7 +113,8 @@ const render = {
                 classes: ['spellImage'],
                 parent: container,
                 attribute: {
-                    src: `/assets/images/uploads/${image}`
+                    src: `/assets/images/uploads/${content.image.newFilename}`,
+                    alt: 'Spell Image'
                 }
             });
         })
@@ -122,7 +123,7 @@ const render = {
     renderPreview(contents) {
         const spells = sel('.spells');
 
-        spells.innerHTML = '';
+        spells.innerHTML = '<h2>Choose Your Spell</h2>';
 
         contents.forEach(content => {
 
@@ -131,16 +132,36 @@ const render = {
                 parent: spells
             });
 
+            const imageContainer = create({
+                classes: ['imageContainer'],
+                parent: container
+            });
+
+            const image = create({
+                type: 'img',
+                classes: ['spellImage'],
+                parent: imageContainer,
+                attribute: {
+                    src: `/assets/images/uploads/${content.image.newFilename}`,
+                    alt: 'Spell Image'
+                }
+            });
+
+            const textContainer = create({
+                classes: ['textContainer'],
+                parent: container
+            });
+
             const name = create({
                 classes: ['spellsName'],
-                parent: container,
+                parent: textContainer,
                 content: content.name
             });
 
             const element = create({
                 classes: ['spellsElement'],
-                parent: container,
-                content: content.element
+                parent: textContainer,
+                content: `Element: ${content.element}`
             });
         })
     }
