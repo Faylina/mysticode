@@ -20,6 +20,12 @@ const mapDOM = () => {
     domElements.intro = document.querySelector('.introduction');
     domElements.spells = document.querySelector('.spells');
     domElements.spell = document.querySelector('.spell');
+    domElements.search = document.querySelector('.search');
+    domElements.filter = document.querySelector('.filter');
+    domElements.register = document.querySelector('.register');
+    domElements.login = document.querySelector('.login');
+    domElements.add = document.querySelector('.add');
+
 }
 
 // dynamic DOM

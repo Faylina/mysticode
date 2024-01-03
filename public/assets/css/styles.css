@@ -286,7 +286,6 @@ h2 {
     align-items: center;
     overflow-y: auto;
     padding: 20px 0; 
-    
 }
 
 .singleSpellContainer {
@@ -304,6 +303,7 @@ h2 {
     flex-direction: column;
     flex-wrap: wrap;
     font-size: 1.2rem;
+    width: 90%;
 }
 
 .singleSpellName {
@@ -331,6 +331,80 @@ h2 {
     object-fit: contain;
     height: 300px;
     width: 90%;
+}
+
+/* LOGIN */
+
+.login {
+    position: absolute; 
+    width: 100%;
+    height: 95%; 
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    padding: 20px 0;
+}
+
+.registerLink, .loginLink {
+    cursor: pointer;
+}
+
+/* REGISTER */
+
+.register {
+    position: absolute; 
+    width: 100%;
+    height: 95%; 
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    padding: 20px 0;
+}
+
+/* SEARCH */
+
+.search {
+    position: absolute; 
+    width: 100%;
+    height: 95%; 
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    padding: 20px 0;
+}
+
+/* FILTER */
+
+.filter {
+    position: absolute; 
+    width: 100%;
+    height: 95%; 
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    padding: 20px 0;
+}
+
+/* ADD SPELL */
+
+.add {
+    position: absolute; 
+    width: 100%;
+    height: 95%; 
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    padding: 20px 0;
 }
 
 
