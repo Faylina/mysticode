@@ -11,6 +11,9 @@ const render = {
 
         contents.forEach(content => {
 
+            const path = content.image.filepath;
+            const size = content.image.size;
+
             const container = create({
                 classes: ['backendContainer'],
                 parent: submitted
@@ -49,7 +52,8 @@ const render = {
                 classes: ['backendImage'],
                 parent: imageContainer,
                 attribute: {
-                    src: `/assets/images/uploads/${content.image.newFilename}`
+                    src: `/assets/images/uploads/${content.image.newFilename}`,
+                    alt: 'Spell Image'
                 }
             });
 
@@ -58,7 +62,7 @@ const render = {
                 parent: imageContainer,
                 listeners: {
                     click(){
-                        deleteAndReload(content._id, content._rev);
+                        deleteAndReload(content._id, content._rev, path, size);
                     }
                 }
             })

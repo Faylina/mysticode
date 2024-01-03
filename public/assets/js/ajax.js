@@ -19,13 +19,13 @@ const ajax = {
         return loadSpells();
     },
 
-    deleteSpells(_id, _rev) {
+    deleteSpells(_id, _rev, imagePath, size) {
         const deleteSpells = async () => {
             try {
                 const result = await fetch ('/deleteSpells', {
                     method: 'delete',
                     headers: { 'content-type': 'application/json' },
-                    body: JSON.stringify([ _id, _rev ])
+                    body: JSON.stringify([ _id, _rev, imagePath, size ])
                 });
                 const spells = await result.json();
                 return { status: 'success', data: spells }; 
@@ -42,8 +42,8 @@ const ajax = {
 const loadSpells = ajax.loadAllSpells;
 const deleteSpells = ajax.deleteSpells;
 
-const deleteAndReload = async (_id, _rev) => {
-    await deleteSpells(_id, _rev);
+const deleteAndReload = async (_id, _rev, imagePath, size) => {
+    await deleteSpells(_id, _rev, imagePath, size);
     const spells = await loadSpells();
     renderAllSpells(spells.data.data);
 }

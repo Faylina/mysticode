@@ -1,7 +1,9 @@
 'use strict';
 
-import { domElements } from './dom.js';
+import { domElements, mapDOM } from './dom.js';
 import { loadSpells, deleteSpells, deleteAndReload, reload } from './ajax.js';
+
+mapDOM();
 
 const submitdata = (event) => {
     event.preventDefault();
@@ -19,6 +21,8 @@ const submitdata = (event) => {
         console.warn
     )
 
+    domElements.name.value = "";
+    domElements.description.value = "";
 }
 
 export { submitdata };

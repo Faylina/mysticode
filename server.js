@@ -98,8 +98,16 @@ server.get('/loadAllSpells', (request, response) => {
 server.delete('/deleteSpells', async (request, response) => {
     try {
         const databaseSpells = database.use(databaseNames.spells);
-        await databaseSpells.destroy(...request.body);
+
+        const deletedSpell = request.body; 
+
+        if (deletedSpell[3] > 0) {
+            fs.unlinkSync(deletedSpell[2]);
+        }
+
     
+        await databaseSpells.destroy(...request.body);
+        
         const result = await databaseSpells.list({ include_docs: true });
         const data = result.rows.map(row => row.doc);
     
@@ -108,7 +116,7 @@ server.delete('/deleteSpells', async (request, response) => {
     } catch (error) {
         console.warn(error);
     }
-   });
+});
 
 const fetchCredentials = async () => {
     try {

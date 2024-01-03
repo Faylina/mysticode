@@ -10,6 +10,8 @@ const mapDOM = () => {
     domElements.closeBook = document.querySelector('.close-book');
     domElements.submit = document.querySelector('#submit');
     domElements.form = document.querySelector('#form-backend');
+    domElements.name = document.querySelector('#name');
+    domElements.description = document.querySelector('#description');
 }
 
 // dynamic DOM
