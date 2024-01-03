@@ -19,6 +19,7 @@ const mapDOM = () => {
     domElements.addSpell = document.querySelector('.addSpell');
     domElements.intro = document.querySelector('.introduction');
     domElements.spells = document.querySelector('.spells');
+    domElements.spell = document.querySelector('.spell');
 }
 
 // dynamic DOM

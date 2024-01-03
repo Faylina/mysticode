@@ -2,6 +2,7 @@
 
 import { create, sel, selAll } from './dom.js'; 
 import { loadSpells, deleteSpells, deleteAndReload, reload} from './ajax.js';
+import { showSpell } from './showSpell.js';
 
 const render = {
     renderAllSpells(contents) {
@@ -78,46 +79,54 @@ const render = {
         })
     },
 
-    renderSpell(contents) {
+    renderSpell(content) {
         const spell = sel('.spell');
 
         spell.innerHTML = '';
 
-        contents.forEach(content => {
-
             const container = create({
-                classes: ['spellContainer'],
+                classes: ['singleSpellContainer'],
                 parent: spell
             });
 
+            const textContainer = create({
+                classes: ['singleTextContainer'],
+                parent: container
+            });
+
             const name = create({
-                classes: ['spellName'],
-                parent: container,
+                classes: ['singleSpellName'],
+                parent: textContainer,
                 content: content.name
             });
 
             const element = create({
-                classes: ['spellElement'],
-                parent: container,
+                classes: ['singleSpellElement'],
+                parent: textContainer,
                 content: `Element: ${content.element}`
             });
 
             const description = create({
-                classes: ['spellDescription'],
-                parent: container,
+                classes: ['singleSpellDescription'],
+                parent: textContainer,
                 content: content.description
+            });
+
+            const imageContainer = create({
+                classes: ['singleImageContainer'],
+                parent: container
             });
 
             const image = create({
                 type: 'img',
-                classes: ['spellImage'],
-                parent: container,
+                classes: ['singleSpellImage'],
+                parent: imageContainer,
                 attribute: {
                     src: `/assets/images/uploads/${content.image.newFilename}`,
                     alt: 'Spell Image'
                 }
-            });
-        })
+            }); 
+        
     },
 
     renderPreview(contents) {
@@ -129,7 +138,12 @@ const render = {
 
             const container = create({
                 classes: ['spellsContainer'],
-                parent: spells
+                parent: spells,
+                listeners: {
+                    click(){
+                        showSpell(content._id, content._rev);
+                    }
+                }
             });
 
             const imageContainer = create({
