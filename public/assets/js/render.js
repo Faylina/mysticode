@@ -1,7 +1,7 @@
 'use strict';
 
 import { create, sel, selAll } from './dom.js'; 
-import { loadSpells, deleteSpells } from './ajax.js';
+import { loadSpells, deleteSpells, deleteAndReload, reload} from './ajax.js';
 
 const render = {
     renderAllSpells(contents) {
@@ -16,40 +16,49 @@ const render = {
                 parent: submitted
             });
 
+            const textContainer = create({
+                classes: ['backendTextContainer'],
+                parent: container
+            });
+
             const name = create({
                 classes: ['backendName'],
-                parent: container,
+                parent: textContainer,
                 content: content.name
             });
 
             const element = create({
                 classes: ['backendElement'],
-                parent: container,
-                content: content.element
+                parent: textContainer,
+                content: `Element: ${content.element}`
             });
 
             const description = create({
                 classes: ['backendDescription'],
-                parent: container,
+                parent: textContainer,
                 content: content.description
+            });
+
+            const imageContainer = create({
+                classes: ['backendImageContainer'],
+                parent: container
             });
 
             const image = create({
                 type: 'img',
                 classes: ['backendImage'],
-                parent: container,
+                parent: imageContainer,
                 attribute: {
                     src: `/assets/images/uploads/${content.image.newFilename}`
                 }
             });
 
-
             const delContainer = create({
                 classes: ['delContainer'],
-                parent: container,
-                listener: {
+                parent: imageContainer,
+                listeners: {
                     click(){
-                        deleteSpells(content._id, content._rev);
+                        deleteAndReload(content._id, content._rev);
                     }
                 }
             })

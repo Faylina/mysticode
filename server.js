@@ -5,9 +5,11 @@ import formidable from 'formidable';
 import express from 'express'; 
 import fs from 'fs';
 import nano from 'nano';
+import { log } from 'console';
 
 const server = express(); 
 server.use(express.static('public'));
+server.use(express.json());
 
 let database;
 const databaseNames = {
@@ -93,28 +95,20 @@ server.get('/loadAllSpells', (request, response) => {
 })
 
 
-server.delete('/deleteSpell', (request, response) => {
-    const databaseSpells = database.use(databaseNames.spells);
-
-    const deleteSpells = async () => {
-        try {
-            const result = await databaseSpells.destroy(...request.body);
-            const newList = await result.list({include_docs: true});
-            const spells = newList.rows.map(row => row.doc); 
-            return { status: 'success', data: spells }; 
-        } catch (error) {
-            console.warn(err); 
-            return { status: 'Delete error', err };
-        }
-    }
-
-    deleteSpells()
-        .then(data => response.json(data))
-        .catch(error => { console.warn(error); });
-})
-
+server.delete('/deleteSpells', async (request, response) => {
+    try {
+        const databaseSpells = database.use(databaseNames.spells);
+        await databaseSpells.destroy(...request.body);
     
+        const result = await databaseSpells.list({ include_docs: true });
+        const data = result.rows.map(row => row.doc);
+    
+        response.json({ status: 'success', data });
 
+    } catch (error) {
+        console.warn(error);
+    }
+   });
 
 const fetchCredentials = async () => {
     try {

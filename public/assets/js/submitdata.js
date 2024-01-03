@@ -1,6 +1,7 @@
 'use strict';
 
 import { domElements } from './dom.js';
+import { loadSpells, deleteSpells, deleteAndReload, reload } from './ajax.js';
 
 const submitdata = (event) => {
     event.preventDefault();
@@ -11,9 +12,9 @@ const submitdata = (event) => {
         method: 'post', 
         body: spell
     }).then(
-        res => res.json()
+        res => reload(res)
     ).then(
-        console.log
+        console.log('Reload successful')
     ).catch(
         console.warn
     )

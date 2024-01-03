@@ -105,3 +105,54 @@ label {
     cursor: pointer;
 }
 
+/* RENDERED CONTENT BACKEND */
+
+.backendContainer {
+    width: 95%;
+    display: flex;
+    justify-content: space-evenly;
+    font-family: cursive;
+    border: 2px solid rgb(136, 85, 48);
+    border-radius: 8px;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: antiquewhite;
+}
+
+.backendTextContainer {
+    width: 60%;
+}
+
+.backendImageContainer {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.backendName {
+    font-size: 1.5rem;
+}
+
+.backendElement {
+    margin: 10px;
+    font-size: 1.2rem;
+}
+
+.backendDescription {
+    font-size: 1.1rem;
+}
+
+.backendImage {
+    width: 80%;
+}
+
+.delContainer {
+    width: 30px;
+    cursor: pointer;
+}
+
+.trash {
+    width: 30px;
+}
+

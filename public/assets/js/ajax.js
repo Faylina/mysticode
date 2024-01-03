@@ -12,7 +12,7 @@ const ajax = {
                 return { status: 'success', data: spells }; 
             } catch (error) {
                 console.warn(error); 
-                return { status: 'Retrieve error', err: error };
+                return { status: 'Retrieve error', error: error };
             }
         }
 
@@ -22,18 +22,18 @@ const ajax = {
     deleteSpells(_id, _rev) {
         const deleteSpells = async () => {
             try {
-                const result = await fetch ('deleteSpell', {
+                const result = await fetch ('/deleteSpells', {
                     method: 'delete',
-                    headers: { 'content-type': 'application.json' },
+                    headers: { 'content-type': 'application/json' },
                     body: JSON.stringify([ _id, _rev ])
                 });
                 const spells = await result.json();
                 return { status: 'success', data: spells }; 
             } catch (error) {
                 console.warn(error); 
-                return { status: 'Delete error', err: error };
+                return { status: 'Delete error', error: error };
             }
-        };
+        }
 
         return deleteSpells();
     } 
@@ -42,4 +42,15 @@ const ajax = {
 const loadSpells = ajax.loadAllSpells;
 const deleteSpells = ajax.deleteSpells;
 
-export { loadSpells, deleteSpells };
+const deleteAndReload = async (_id, _rev) => {
+    await deleteSpells(_id, _rev);
+    const spells = await loadSpells();
+    renderAllSpells(spells.data.data);
+}
+
+const reload = async () => {
+    const spells = await loadSpells();
+    renderAllSpells(spells.data.data);
+}
+
+export { loadSpells, deleteSpells, deleteAndReload, reload };
