@@ -1,6 +1,6 @@
 'use strict';
 
-import { domElements, mapDOM, create, sel, selAll } from './dom.js';
+import { mapDOM } from './dom.js';
 import { createEventListener } from './eventsFrontend.js';
 
 

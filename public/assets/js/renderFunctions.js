@@ -4,6 +4,7 @@ import { create, sel, selAll } from './dom.js';
 import { goRegister, logIntoAccount } from './loginFunctions.js';
 import { loginUser } from './loginUser.js';
 import { createAccount } from './registerFunctions.js';
+import { submitUserSpell } from './submitdata.js';
 
 const renderFunctions = {
 
@@ -289,8 +290,8 @@ const renderFunctions = {
                 id: 'addForm'
             },
             listeners: {
-                click(event){
-                    submitdata(event);
+                submit(event){
+                    submitUserSpell(event);
                 }
             }
         });
@@ -300,7 +301,7 @@ const renderFunctions = {
             parent: form,
             content: 'Name you spell: ',
             attribute: {
-                for: 'addName'
+                for: 'name'
             }
         });
 
@@ -309,8 +310,8 @@ const renderFunctions = {
             parent: form,
             attribute: {
                 type: 'text',
-                id: 'addName',
-                name: 'addName',
+                id: 'name',
+                name: 'name',
             }
         });
 
@@ -319,7 +320,7 @@ const renderFunctions = {
             parent: form,
             content: 'Choose the element of your spell: ',
             attribute: {
-                for: 'addElement'
+                for: 'element'
             }
         });
 
@@ -327,8 +328,8 @@ const renderFunctions = {
             type: 'select',
             parent: form,
             attribute: {
-                name: 'addElement',
-                id: 'addElement'
+                name: 'element',
+                id: 'element'
             }
         });
 
@@ -381,7 +382,7 @@ const renderFunctions = {
             parent: form,
             content: 'Describe your spell and how to use it: ',
             attribute: {
-                for: 'addDescription'
+                for: 'description'
             }
         });
 
@@ -389,8 +390,8 @@ const renderFunctions = {
             type: 'textarea',
             parent: form,
             attribute: {
-                name: 'addDescription',
-                id: 'addDescription',
+                name: 'description',
+                id: 'description',
                 cols: '40',
                 rows: '10'
             }
@@ -401,7 +402,7 @@ const renderFunctions = {
             parent: form,
             content: 'Upload an image for your spell: ',
             attribute: {
-                for: 'addImage'
+                for: 'image'
             }
         });
 
@@ -410,8 +411,8 @@ const renderFunctions = {
             parent: form,
             attribute: {
                 type: 'file',
-                name: 'addImage',
-                id: 'addImage'
+                name: 'image',
+                id: 'image'
             }
         });
 

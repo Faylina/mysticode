@@ -2,8 +2,8 @@
 
 import { createEventListener } from './eventsBackend.js';
 import { mapDOM } from './dom.js';
-import { loadSpells, deleteSpells } from './ajax.js';
-import { renderAllSpells, renderSpell, renderPreview } from './render.js';
+import { loadSpells } from './ajax.js';
+import { renderAllSpells } from './render.js';
 
 
 const init = () => {
