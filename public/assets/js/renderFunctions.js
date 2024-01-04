@@ -196,7 +196,7 @@ const renderFunctions = {
             type: 'label',
             classes: ['emailLabel'],
             parent: emailContainer,
-            content: 'Email',
+            content: 'Email: ',
             attribute: {
                 for: 'registerEmail'
             }
@@ -221,7 +221,7 @@ const renderFunctions = {
             type: 'label',
             classes: ['passwordLabel'],
             parent: passwordContainer,
-            content: 'Password',
+            content: 'Password: ',
             attribute: {
                 for: 'registerPassword'
             }
