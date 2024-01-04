@@ -25,6 +25,7 @@ const mapDOM = () => {
     domElements.register = document.querySelector('.register');
     domElements.login = document.querySelector('.login');
     domElements.add = document.querySelector('.add');
+    domElements.registerForm = document.querySelector('#registerForm');
 
 }
 

@@ -1,7 +1,7 @@
 'use strict';
 
 import { domElements, mapDOM, create, sel, selAll } from './dom.js';
-import { setInvisible } from './targetElement.js';
+import { setInvisible } from './setInvisible.js';
 import { renderLogin } from './renderFunctions.js';
 
 mapDOM();

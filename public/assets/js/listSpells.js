@@ -3,7 +3,7 @@
 import { domElements, mapDOM, create, sel, selAll } from './dom.js';
 import { loadSpells, deleteSpells, deleteAndReload, reload} from './ajax.js';
 import { renderPreview} from './render.js';
-import { setInvisible } from './targetElement.js';
+import { setInvisible } from './setInvisible.js';
 
 const listSpells = (event) => {
     event.stopPropagation();

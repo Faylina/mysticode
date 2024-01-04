@@ -13,7 +13,8 @@ server.use(express.json());
 
 let database;
 const databaseNames = {
-    spells: 'spells'
+    spells: 'spells',
+    users: 'users'
 }
 
 
@@ -91,7 +92,7 @@ server.get('/loadAllSpells', (request, response) => {
 
     retrieveSpells()
         .then(data => response.json(data))
-        .catch(error => { console.warn(error); });
+        .catch(error => { console.warn(error) });
 })
 
 
@@ -118,6 +119,78 @@ server.delete('/deleteSpells', async (request, response) => {
     }
 });
 
+
+server.post('/saveNewUser', (request, response) => {
+    const myForm = formidable();
+
+    myForm.parse(request, (error, fields) => {
+        if (error) { 
+            console.log(error);
+            response.json({
+                status: 'Form error',
+                error
+            })
+        } else {
+
+            let user = (new classes.User(
+                fields.firstName[0],
+                fields.lastName[0],
+                fields.registerEmail[0],
+                fields.registerPassword[0]
+            ))
+
+            let databaseUsers = database.use(databaseNames.users);
+
+            const insertAndRetrieveUsers = async () => {
+                try {
+                    await databaseUsers.insert({
+                        firstName: user.firstName,
+                        lastName: user.lastName,
+                        registerEmail: user.registerEmail,
+                        registerPassword: user.registerPassword
+                    });
+
+                    const result = await databaseUsers.list({ include_docs: true 
+                    }); 
+
+                    const users = result.rows.map(row => row.doc); 
+                    response.json ({ status: 'success', data: users }); 
+
+                } catch (error) { 
+                    console.warn(error); 
+                    response.json ({ status: 'Insert error', error }); 
+                } 
+            }; 
+
+            insertAndRetrieveUsers()
+            .then(data => response.json(data))
+            .catch(error => { console.warn(error); });
+        }
+    })
+})
+
+
+server.get('/loadAllUsers', (request, response) => {
+    const databaseUsers = database.use(databaseNames.users);
+
+    const retrieveUsers = async () => {
+        try {
+            const result = await databaseUsers.list({ include_docs: true 
+            }); 
+            const users = result.rows.map(row => row.doc); 
+            return { status: 'success', data: users };
+        } catch (error) {
+            console.warn(err); 
+            return { status: 'Retrieve error', err };
+        }
+    }
+
+    retrieveUsers()
+        .then(data => response.json(data))
+        .catch(error => { console.warn(error) });
+})
+
+
 const fetchCredentials = async () => {
     try {
         const data = await fs.promises.readFile('./data/credentials.json', 'utf8');
@@ -134,16 +207,24 @@ const init = async () => {
 
     database = nano(`http://${credentials.username}:${credentials.password}@127.0.0.1:5984`).db;
 
-    const checkAndCreateDB = async () => {
+    const checkAndCreateSpellsDB = async () => {
         const response = await database.list();
         if (!response.includes(databaseNames.spells)) {
             await database.create(databaseNames.spells)
         }
     }
 
+    const checkAndCreateUsersDB = async () => {
+        const response = await database.list();
+        if (!response.includes(databaseNames.users)) {
+            await database.create(databaseNames.users)
+        }
+    }
+
     const startServer = async () => {
         try {
-            await checkAndCreateDB();
+            await checkAndCreateSpellsDB();
+            await checkAndCreateUsersDB();
             server.listen(2020, err => console.log(err || 'The server is running at port 2020.'))
         } catch(error) {
             console.log(error);

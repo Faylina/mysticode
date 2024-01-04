@@ -130,9 +130,9 @@ const renderFunctions = {
             attribute: {
                 id: 'registerForm'
             },
-            listener: {
-                submit(){
-                    createAccount();
+            listeners: {
+                submit(event){
+                    createAccount(event);
                 }
             }
         }); 
@@ -206,7 +206,7 @@ const renderFunctions = {
             type: 'input',
             parent: emailContainer,
             attribute: {
-                type: 'text',
+                type: 'email',
                 id: 'registerEmail',
                 name: 'registerEmail'
             }
