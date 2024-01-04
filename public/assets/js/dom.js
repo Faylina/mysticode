@@ -29,7 +29,7 @@ const mapDOM = () => {
     domElements.greeting = document.querySelector('.greeting');
     domElements.nameUser = document.querySelector('.nameUser');
     domElements.logout = document.querySelector('.logout');
-
+    domElements.dear = document.querySelector('.dear');
 }
 
 // dynamic DOM

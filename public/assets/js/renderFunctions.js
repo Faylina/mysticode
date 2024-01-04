@@ -6,6 +6,7 @@ import { loginUser } from './loginUser.js';
 import { createAccount } from './registerFunctions.js';
 import { submitUserSpell } from './submitdata.js';
 import { searchSpell } from './searchSpells.js';
+import { filterElements } from './filterSpells.js';
 
 
 const renderFunctions = {
@@ -24,7 +25,7 @@ const renderFunctions = {
             type: 'h2',
             classes: ['loginHeading'],
             parent: container,
-            content: 'Log Into Your Account'
+            content: 'Log into your account'
         });
 
         const form = create({
@@ -124,7 +125,7 @@ const renderFunctions = {
             type: 'h2',
             classes: ['loginHeading'],
             parent: container,
-            content: 'Create an Account'
+            content: 'Create an account'
         });
 
         const form = create({
@@ -261,7 +262,168 @@ const renderFunctions = {
     },
 
     renderFilter() {
+        const filter = sel('.filter');
 
+        filter.innerHTML = '';
+
+        const container = create({
+            classes: ['filterContainer'],
+            parent: filter
+        });
+
+        const heading = create({
+            type: 'h2',
+            classes: ['filterHeading'],
+            parent: container,
+            content: 'Filter by element'
+        });
+
+        const form = create({
+            type: 'form',
+            parent: container,
+            attribute: {
+                id: 'filterForm'
+            }
+        });
+
+        const firstRadioContainer = create({
+            classes: ['radioContainer'],
+            parent: form
+        });
+
+        const firstSubContainer = create({
+            classes: ['subContainer'],
+            parent: firstRadioContainer
+        });
+
+        const airLabel = create({
+            type: 'label',
+            classes: ['elementLabel'],
+            parent: firstSubContainer,
+            content: 'Air',
+            attribute: {
+                for: 'airRadio'
+            }
+        });
+
+        const airRadio = create({
+            type: 'input',
+            parent: firstSubContainer,
+            attribute: {
+                type: 'radio',
+                id: 'airRadio',
+                name: 'elementType',
+                value: 'Air'
+            },
+            listeners: {
+                change(event){
+                    filterElements(event);
+                }
+            }
+        });
+
+        const secondSubContainer = create({
+            classes: ['subContainer'],
+            parent: firstRadioContainer
+        });
+
+        const earthLabel = create({
+            type: 'label',
+            classes: ['elementLabel'],
+            parent: secondSubContainer,
+            content: 'Earth',
+            attribute: {
+                for: 'earthRadio'
+            }
+        });
+
+        const earthRadio = create({
+            type: 'input',
+            parent: secondSubContainer,
+            attribute: {
+                type: 'radio',
+                id: 'earthRadio',
+                name: 'elementType',
+                value: 'Earth'
+            },
+            listeners: {
+                change(event){
+                    filterElements(event);
+                }
+            }
+        });
+
+        const secondRadioContainer = create({
+            classes: ['radioContainer'],
+            parent: form
+        });
+
+        const thirdSubContainer = create({
+            classes: ['subContainer'],
+            parent: secondRadioContainer
+        });
+
+        const fireLabel = create({
+            type: 'label',
+            classes: ['elementLabel'],
+            parent: thirdSubContainer,
+            content: 'Fire',
+            attribute: {
+                for: 'fireRadio'
+            }
+        });
+
+        const fireRadio = create({
+            type: 'input',
+            parent: thirdSubContainer,
+            attribute: {
+                type: 'radio',
+                id: 'fireRadio',
+                name: 'elementType',
+                value: 'Fire'
+            },
+            listeners: {
+                change(event){
+                    filterElements(event);
+                }
+            }
+        });
+
+        const fourthSubContainer = create({
+            classes: ['subContainer'],
+            parent: secondRadioContainer
+        });
+
+        const waterLabel = create({
+            type: 'label',
+            classes: ['elementLabel'],
+            parent: fourthSubContainer,
+            content: 'Water',
+            attribute: {
+                for: 'waterRadio'
+            }
+        });
+
+        const waterRadio = create({
+            type: 'input',
+            parent: fourthSubContainer,
+            attribute: {
+                type: 'radio',
+                id: 'waterRadio',
+                name: 'elementType',
+                value: 'Water'
+            },
+            listeners: {
+                change(event){
+                    filterElements(event);
+                }
+            }
+        });
+
+        const results = create({
+            classes: ['filterResults'],
+            parent: container
+        });
     },
 
     renderSearch() {
@@ -273,6 +435,13 @@ const renderFunctions = {
             classes: ['searchContainer'],
             parent: search
         });
+
+        const heading = create({
+            type: 'h2',
+            classes: ['searchHeading'],
+            parent: container,
+            content: 'Search for a spell'
+        })
 
         const searchContainer = create({
             classes: ['searchInputContainer'],

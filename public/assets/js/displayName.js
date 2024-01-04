@@ -6,6 +6,7 @@ const displayName = () => {
     const name = localStorage.getItem('name');
     domElements.nameUser.innerHTML = '';
     domElements.nameUser.innerHTML = `This grimoire belongs to: ${name}`;
+    domElements.dear.innerHTML = `Dear ${name},`;
     domElements.greeting.classList.remove('invisible');
 }
 
