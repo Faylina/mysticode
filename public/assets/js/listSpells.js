@@ -19,7 +19,7 @@ const listSpells = () => {
 
     loadSpells()
     .then(response => {
-        renderPreview(response.data.data)
+        renderPreview(response.data.data, '.spells')
     })
     .catch(console.warn)
 

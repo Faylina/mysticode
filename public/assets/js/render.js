@@ -129,16 +129,16 @@ const render = {
         
     },
 
-    renderPreview(contents) {
-        const spells = sel('.spells');
+    renderPreview(contents, target) {
+        const el = sel(target);
 
-        spells.innerHTML = '<h2>Choose Your Spell</h2>';
+        el.innerHTML = '<h2>Choose Your Spell</h2>';
 
         contents.forEach(content => {
 
             const container = create({
                 classes: ['spellsContainer'],
-                parent: spells,
+                parent: el,
                 listeners: {
                     click(){
                         showSpell(content._id, content._rev);

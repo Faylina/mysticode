@@ -1,10 +1,12 @@
 'use strict';
 
-import { create, sel, selAll } from './dom.js'; 
+import { domElements, mapDOM, create, sel, selAll } from './dom.js'; 
 import { goRegister, logIntoAccount } from './loginFunctions.js';
 import { loginUser } from './loginUser.js';
 import { createAccount } from './registerFunctions.js';
 import { submitUserSpell } from './submitdata.js';
+import { searchSpell } from './searchSpells.js';
+
 
 const renderFunctions = {
 
@@ -263,7 +265,40 @@ const renderFunctions = {
     },
 
     renderSearch() {
+        const search = sel('.search');
 
+        search.innerHTML = '';
+
+        const container = create({
+            classes: ['searchContainer'],
+            parent: search
+        });
+
+        const searchContainer = create({
+            classes: ['searchInputContainer'],
+            parent: container
+        });
+
+        const searchInput = create({
+            type: 'input',
+            parent: searchContainer,
+            attribute: {
+                type: 'text',
+                id: 'searchInput',
+                name: 'searchInput',
+                placeholder: 'Search'
+            },
+            listeners: {
+                input(event){
+                    searchSpell(event)
+                }
+            }
+        });
+
+        const resultsContainer = create({
+            classes: ['searchResultsContainer'],
+            parent: container
+        });
     },
 
     renderAddSpell() {
