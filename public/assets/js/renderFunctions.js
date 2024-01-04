@@ -30,9 +30,9 @@ const renderFunctions = {
             attribute: {
                 id: 'loginForm'
             },
-            listener: {
-                submit(){
-                    logIntoAccount();
+            listeners: {
+                submit(event){
+                    logIntoAccount(event);
                 }
             }
         }); 

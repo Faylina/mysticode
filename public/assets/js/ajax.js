@@ -36,11 +36,27 @@ const ajax = {
         }
 
         return deleteSpells();
-    } 
+    },
+
+    loadAllUsers() {
+        const loadUsers = async () => {
+            try {
+                const result = await fetch('/loadAllUsers');
+                const users = await result.json();
+                return { status: 'success', data: users }; 
+            } catch (error) {
+                console.warn(error); 
+                return { status: 'Retrieve error', error: error };
+            }
+        }
+
+        return loadUsers();
+    },
 }
 
 const loadSpells = ajax.loadAllSpells;
 const deleteSpells = ajax.deleteSpells;
+const loadUsers = ajax.loadAllUsers;
 
 const deleteAndReload = async (_id, _rev, imagePath, size) => {
     await deleteSpells(_id, _rev, imagePath, size);
@@ -53,4 +69,4 @@ const reload = async () => {
     renderAllSpells(spells.data.data);
 }
 
-export { loadSpells, deleteSpells, deleteAndReload, reload };
+export { loadSpells, deleteSpells, loadUsers, deleteAndReload, reload };

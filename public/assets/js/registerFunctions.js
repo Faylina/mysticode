@@ -1,9 +1,16 @@
 'use strict';
 
 import { domElements, mapDOM, sel } from './dom.js';
-import { loginUser } from './loginUser.js';
+import { displayName } from './displayName.js';
+import { listSpells } from './listSpells.js';
 
 mapDOM();
+
+const logNewAccount = (event) => {
+    const name = event.target[0].value;
+    localStorage.setItem('name', name);
+    displayName();
+}
 
 const createAccount = (event) => {
     event.preventDefault();
@@ -21,7 +28,9 @@ const createAccount = (event) => {
         console.warn
     )
 
-    loginUser();
+    logNewAccount(event);
+
+    listSpells();
 }
 
 export { createAccount };

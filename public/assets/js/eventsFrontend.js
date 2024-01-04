@@ -8,6 +8,7 @@ import { filterSpells } from './filterSpells.js';
 import { loginUser } from './loginUser.js'; 
 import { addSpell } from './addSpell.js'; 
 import { createAccount } from './registerFunctions.js';
+import { logout } from './logout.js';
 
 mapDOM();
 
@@ -19,6 +20,7 @@ const createEventListener = () => {
     domElements.filterSpells.addEventListener('click', filterSpells);   
     domElements.loginUser.addEventListener('click', loginUser); 
     domElements.addSpell.addEventListener('click', addSpell); 
+    domElements.logout.addEventListener('click', logout); 
 }
 
 export { createEventListener };

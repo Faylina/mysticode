@@ -6,7 +6,7 @@ import { renderLogin } from './renderFunctions.js';
 
 mapDOM();
 
-const loginUser = (event) => {
+const loginUser = () => {
 
     setInvisible(domElements.intro);
     setInvisible(domElements.spell);

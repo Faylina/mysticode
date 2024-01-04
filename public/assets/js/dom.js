@@ -26,6 +26,9 @@ const mapDOM = () => {
     domElements.login = document.querySelector('.login');
     domElements.add = document.querySelector('.add');
     domElements.registerForm = document.querySelector('#registerForm');
+    domElements.greeting = document.querySelector('.greeting');
+    domElements.nameUser = document.querySelector('.nameUser');
+    domElements.logout = document.querySelector('.logout');
 
 }
 

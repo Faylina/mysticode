@@ -110,6 +110,30 @@ body {
     z-index: -1;
 }
 
+/* GREETING */
+
+.greeting {
+    position: absolute;
+    z-index: 3;
+    color: white;
+    font-family: cursive;  
+    display: flex;
+    flex-direction: column;
+    padding: 5% 0 0 19%; 
+}
+
+.logout {
+    cursor: pointer;
+    text-decoration: underline;
+    transition: 0.5s;
+}
+
+.logout:hover {
+    transition: 0.5s;
+    color: #e6c805;
+    text-shadow: 0 0 15px #e6c805;
+}
+
 /* NAVIGATION */
 
 .menu {
@@ -362,6 +386,7 @@ h2 {
     font-family: Papyrus, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     letter-spacing: 0.1rem;
     font-size: 1.1rem;
+    cursor: pointer;
 }
 
 .registerLink, .loginLink {
