@@ -266,7 +266,164 @@ const renderFunctions = {
     },
 
     renderAddSpell() {
+        const add = sel('.add');
 
+        add.innerHTML = '';
+
+        const container = create({
+            classes: ['addContainer'],
+            parent: add
+        });
+
+        const heading = create({
+            type: 'h2',
+            classes: ['addHeading'],
+            content: 'Create a new spell',
+            parent: container,
+        });
+
+        const form = create({
+            type: 'form',
+            parent: container,
+            attribute: {
+                id: 'addForm'
+            },
+            listeners: {
+                click(event){
+                    submitdata(event);
+                }
+            }
+        });
+
+        const nameLabel = create({
+            type: 'label',
+            parent: form,
+            content: 'Name you spell: ',
+            attribute: {
+                for: 'addName'
+            }
+        });
+
+        const nameInput = create({
+            type: 'input',
+            parent: form,
+            attribute: {
+                type: 'text',
+                id: 'addName',
+                name: 'addName',
+            }
+        });
+
+        const elementLabel = create({
+            type: 'label',
+            parent: form,
+            content: 'Choose the element of your spell: ',
+            attribute: {
+                for: 'addElement'
+            }
+        });
+
+        const addSelect = create({
+            type: 'select',
+            parent: form,
+            attribute: {
+                name: 'addElement',
+                id: 'addElement'
+            }
+        });
+
+        const addGroup = create({
+            type: 'optgroup',
+            parent: addSelect,
+            attribute: {
+                label: 'Element'
+            }
+        });
+
+        const air = create({
+            type: 'option',
+            parent: addGroup,
+            content: 'Air',
+            attribute: {
+                value: 'Air'
+            }
+        });
+
+        const earth = create({
+            type: 'option',
+            parent: addGroup,
+            content: 'Earth',
+            attribute: {
+                value: 'Earth'
+            }
+        });
+
+        const fire = create({
+            type: 'option',
+            parent: addGroup,
+            content: 'Fire',
+            attribute: {
+                value: 'Fire'
+            }
+        });
+
+        const water = create({
+            type: 'option',
+            parent: addGroup,
+            content: 'Water',
+            attribute: {
+                value: 'Water'
+            }
+        });
+
+        const descriptionLabel = create({
+            type: 'label',
+            parent: form,
+            content: 'Describe your spell and how to use it: ',
+            attribute: {
+                for: 'addDescription'
+            }
+        });
+
+        const description = create({
+            type: 'textarea',
+            parent: form,
+            attribute: {
+                name: 'addDescription',
+                id: 'addDescription',
+                cols: '40',
+                rows: '10'
+            }
+        });
+
+        const imageLabel = create({
+            type: 'label',
+            parent: form,
+            content: 'Upload an image for your spell: ',
+            attribute: {
+                for: 'addImage'
+            }
+        });
+
+        const image = create({
+            type: 'input',
+            parent: form,
+            attribute: {
+                type: 'file',
+                name: 'addImage',
+                id: 'addImage'
+            }
+        });
+
+        const button = create({
+            type: 'button',
+            parent: form,
+            content: 'Submit Your Spell',
+            attribute: {
+                id: 'addSubmit'
+            }
+        });
+        
     }
 }
 
