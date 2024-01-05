@@ -1,6 +1,6 @@
 'use strict';
 
-import { domElements, mapDOM, create, sel, selAll } from './dom.js';
+import { domElements, mapDOM } from './dom.js';
 import { setInvisible } from './setInvisible.js';
 import { renderSearch } from './renderFunctions.js';
 import { loadSpells } from './ajax.js';
@@ -26,11 +26,14 @@ const searchSpells = () => {
 
 const searchSpell = (event) => {
 
-    const input = event.target.value;
+    const input = (event.target.value).toLowerCase();
 
     const compareSpells = (spells) => {
         const searchResults = spells.filter((value) => {
-            if (value.name.includes(input)) {
+            
+            const spell = (value.name).toLowerCase();
+    
+            if (spell.includes(input)) {
                 return value
             }
         })

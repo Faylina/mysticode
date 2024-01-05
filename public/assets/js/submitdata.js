@@ -1,7 +1,7 @@
 'use strict';
 
-import { domElements, mapDOM, sel } from './dom.js';
-import { loadSpells, deleteSpells, deleteAndReload, reload } from './ajax.js';
+import { domElements, mapDOM } from './dom.js';
+import { reload } from './ajax.js';
 import { renderAddSpell } from './renderFunctions.js';
 
 mapDOM();

@@ -1,6 +1,6 @@
 'use strict';
 
-import { renderAllSpells, renderSpell, renderPreview } from './render.js';
+import { renderAllSpells } from './render.js';
 
 const ajax = {
 

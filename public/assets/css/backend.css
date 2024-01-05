@@ -83,6 +83,7 @@ label {
 #description {
     width: 95%;
     height: 60%;
+    padding: 8px;
 }
 
 #image {

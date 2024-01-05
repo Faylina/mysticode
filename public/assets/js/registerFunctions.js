@@ -1,6 +1,6 @@
 'use strict';
 
-import { domElements, mapDOM, sel } from './dom.js';
+import { mapDOM, sel } from './dom.js';
 import { displayName } from './displayName.js';
 import { listSpells } from './listSpells.js';
 
@@ -15,22 +15,35 @@ const logNewAccount = (event) => {
 const createAccount = (event) => {
     event.preventDefault();
 
-    const registerForm = sel('#registerForm');
+    const firstName = document.querySelector('#firstName').value.length;
+    const lastName = document.querySelector('#lastName').value.length;
+    const email = document.querySelector('#registerEmail').value.length;
+    const password = document.querySelector('#registerPassword').value.length;
 
-    const user = new FormData(registerForm);
+    if ((firstName == 0) || (lastName == 0) || (email == 0) || (password
+         == 0)) {
 
-    fetch('/saveNewUser', {
-        method: 'post', 
-        body: user
-    }).then(
-        console.log('Import successful')
-    ).catch(
-        console.warn
-    )
+        alert('Please fill out every field.');
 
-    logNewAccount(event);
+    } else {
 
-    listSpells();
+        const registerForm = sel('#registerForm');
+
+        const user = new FormData(registerForm);
+
+        fetch('/saveNewUser', {
+            method: 'post', 
+            body: user
+        }).then(
+            console.log('Import successful')
+        ).catch(
+            console.warn
+        )
+
+        logNewAccount(event);
+
+        listSpells();
+    }
 }
 
 export { createAccount };

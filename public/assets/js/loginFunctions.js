@@ -1,6 +1,6 @@
 'use strict';
 
-import { domElements, mapDOM, create, sel, selAll } from './dom.js';
+import { domElements } from './dom.js';
 import { setInvisible } from './setInvisible.js';
 import { renderRegister } from './renderFunctions.js';
 import { loadUsers } from './ajax.js';
@@ -43,12 +43,13 @@ const loginFunctions = {
             });
 
             if(match === false) {
-                alert('No account was found. Please create a new account.')
+                alert('No account was found. Please create a new account.');
             } else if (localStorage.getItem('name')) {
                 alert('You are already logged in! :)');
             } else {
                 localStorage.setItem('name', name);
             } 
+            
         }
 
         if (email.length == 0 || password.length == 0) {
@@ -59,10 +60,14 @@ const loginFunctions = {
                     compareData(response.data.data)
             })
             .then(() => {
-                displayName();
+                if (localStorage.getItem('name')) {
+                    displayName();
+                }
             })
             .then(() => {
-                listSpells();
+                if (localStorage.getItem('name')) {
+                    listSpells();
+                }
             })
             .catch(console.warn)
         }

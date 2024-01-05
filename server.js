@@ -26,8 +26,6 @@ server.post('/saveNewSpells', (request, response) => {
         minFileSize: 0
     });
 
-    console.log(response.body);
-
     myForm.parse(request, (error, fields, files) => {
         if (error) { 
             console.log(error);

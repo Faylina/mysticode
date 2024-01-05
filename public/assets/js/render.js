@@ -1,7 +1,7 @@
 'use strict';
 
-import { create, sel, selAll } from './dom.js'; 
-import { loadSpells, deleteSpells, deleteAndReload, reload} from './ajax.js';
+import { create, sel } from './dom.js'; 
+import { deleteAndReload } from './ajax.js';
 import { showSpell } from './showSpell.js';
 
 const render = {

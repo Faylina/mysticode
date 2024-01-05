@@ -1,6 +1,6 @@
 'use strict';
 
-import { domElements, mapDOM, create, sel, selAll } from './dom.js';
+import { domElements, mapDOM } from './dom.js';
 import { loginUser} from './loginUser.js';
 import { setInvisible } from './setInvisible.js';
 import { renderAddSpell } from './renderFunctions.js';

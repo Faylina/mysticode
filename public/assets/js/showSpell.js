@@ -1,8 +1,8 @@
 'use strict';
 
-import { domElements, mapDOM, create, sel, selAll } from './dom.js';
-import { loadSpells, deleteSpells, deleteAndReload, reload} from './ajax.js';
-import { renderSpell} from './render.js';
+import { domElements } from './dom.js';
+import { loadSpells } from './ajax.js';
+import { renderSpell } from './render.js';
 import { setInvisible } from './setInvisible.js';
 
 const showSpell = (_id, _rev) => {

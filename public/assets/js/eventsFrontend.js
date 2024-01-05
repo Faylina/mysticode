@@ -7,7 +7,6 @@ import { searchSpells } from './searchSpells.js';
 import { filterSpells } from './filterSpells.js'; 
 import { loginUser } from './loginUser.js'; 
 import { addSpell } from './addSpell.js'; 
-import { createAccount } from './registerFunctions.js';
 import { logout } from './logout.js';
 
 mapDOM();

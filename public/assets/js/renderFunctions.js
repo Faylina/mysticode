@@ -1,6 +1,6 @@
 'use strict';
 
-import { domElements, mapDOM, create, sel, selAll } from './dom.js'; 
+import { create, sel } from './dom.js'; 
 import { goRegister, logIntoAccount } from './loginFunctions.js';
 import { loginUser } from './loginUser.js';
 import { createAccount } from './registerFunctions.js';
